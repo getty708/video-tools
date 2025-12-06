@@ -32,9 +32,11 @@ def trim_video(config: TrimConfig) -> None:
             start_time,
             "-to",
             end_time,
-            "-c",
-            "copy",
-            str(output_path),
         ]
 
+        if not config.reencode:
+            command.extend(["-c", "copy"])
+        command.append(str(output_path))
+
+        print(" ".join(command))
         subprocess.run(command, check=True)

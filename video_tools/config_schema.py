@@ -16,6 +16,7 @@ class TrimConfig:
     input_video_path: Path
     clips: List[ClipConfig]
     output_dir: Path
+    reencode: bool = False
 
 
 @define
